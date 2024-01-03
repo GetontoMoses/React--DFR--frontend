@@ -1,13 +1,13 @@
 import react from "react";
 
-import PostList from "./components/PostList";
+import SnippetForm from "./components/SnippetForm";
 import ShowList from "./components/ShowList";
 
 const App = () => {
   return (
     <div>
-      < ShowList/>
-      < PostList />
+      < SnippetForm/>
+      < ShowList />
     </div>
   );
 };

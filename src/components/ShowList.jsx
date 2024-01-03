@@ -5,7 +5,7 @@ export default function ShowList() {
   useEffect(() => {
     async function getPosts() {
       try {
-        const response = await fetch("http://127.0.0.1:8000/quickstart/");
+        const response = await fetch("http://127.0.0.1:8000/quickstart");
         const data = await response.json();
         setPosts(data);
       } catch (error) {
