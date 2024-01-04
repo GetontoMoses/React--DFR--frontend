@@ -16,20 +16,17 @@ export default function SnippetForm() {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  async function handleOnSubmit(e) {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/quickstart/", {
+      await fetch("http://127.0.0.1:8000/quickstart/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(values),
       });
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
       setValues({
         title: "",
         code: "",
@@ -37,8 +34,6 @@ export default function SnippetForm() {
         language: "",
         style: "",
       });
-      const responseData = await response.json();
-      console.log("Data posted successfully:", responseData);
     } catch (error) {
       console.error("Error posting data:", error.message);
     }
@@ -92,7 +87,9 @@ export default function SnippetForm() {
         </label>
         <br />
 
-        <button type="submit" onClick={handleInputChange}>Submit</button>
+        <button type="submit" onClick={handleOnSubmit}>
+          Submit
+        </button>
       </form>
     </>
   );
